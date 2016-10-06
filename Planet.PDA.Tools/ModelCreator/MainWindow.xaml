@@ -1,0 +1,31 @@
+﻿<Window x:Class="Planet.PDA.Tools.ModelCreator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ModelCreator"
+        mc:Ignorable="d"
+        Title="OutputModel" Height="200" Width="320">
+    <Grid VerticalAlignment="top" HorizontalAlignment="Center" Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="210" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="出力フォルダ" HorizontalAlignment="Left" Height="auto" Margin="0,0,0,0" VerticalAlignment="Center" />
+        <Label Grid.Column="0" Grid.Row="1" Content="名前空間" HorizontalAlignment="Left" Height="auto" Margin="0,0,0,0" VerticalAlignment="Center" />
+        <Label Grid.Column="0" Grid.Row="2" Content="WCF or Xamarin" HorizontalAlignment="Left" Height="auto" Margin="0,0,0,0" VerticalAlignment="Center" />
+
+        <TextBox x:Name="txtOutput"  Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Height="auto" Margin="5,0,0,0" VerticalAlignment="Center" Width="200" />
+        <TextBox x:Name="txtNamespace"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Height="auto" Margin="5,0,0,0" VerticalAlignment="Center" Width="200" />
+        <RadioButton x:Name="radioWCF" Content="WCF" Grid.Column="1" IsChecked="true" HorizontalAlignment="Left" Margin="5,00,0,0" Grid.Row="2" VerticalAlignment="Center"/>
+        <RadioButton x:Name="radioXamarin" Content="Xaamarin" Grid.Column="1" HorizontalAlignment="Left" Margin="100,0,0,0" Grid.Row="2" VerticalAlignment="Center"/>
+        <Button x:Name="OutputButton" Grid.Column="1" Grid.Row="4" Content="出力ボタン" Margin="20, 5, 20, 5" Click="OutputButton_Click" />
+    </Grid>
+</Window>

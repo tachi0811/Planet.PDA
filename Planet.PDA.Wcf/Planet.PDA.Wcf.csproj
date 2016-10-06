@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7278BE02-1ECC-429B-8F6D-1AEEE26F7F7E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Planet.PDA.Wcf</RootNamespace>
+    <AssemblyName>Planet.PDA.Wcf</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.1.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.1.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.1.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\ai.0.22.19-build00125.js" />
+    <Content Include="scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="SendService.svc" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="models\apply_business.cs" />
+    <Compile Include="models\ap_system_parameter.cs" />
+    <Compile Include="models\asn.cs" />
+    <Compile Include="models\assign_number.cs" />
+    <Compile Include="models\bits_pos_coupon.cs" />
+    <Compile Include="models\bits_pos_payment_parameter.cs" />
+    <Compile Include="models\bits_pos_tax.cs" />
+    <Compile Include="models\brand.cs" />
+    <Compile Include="models\business_state_trn.cs" />
+    <Compile Include="models\control.cs" />
+    <Compile Include="models\customer_base.cs" />
+    <Compile Include="models\cust_voice.cs" />
+    <Compile Include="models\cust_voice_class.cs" />
+    <Compile Include="models\cust_voice_detail.cs" />
+    <Compile Include="models\delivery_area.cs" />
+    <Compile Include="models\delivery_service.cs" />
+    <Compile Include="models\delivery_trader.cs" />
+    <Compile Include="models\dtproperties.cs" />
+    <Compile Include="models\export_close.cs" />
+    <Compile Include="models\export_daily_report.cs" />
+    <Compile Include="models\export_end.cs" />
+    <Compile Include="models\export_open.cs" />
+    <Compile Include="models\export_sales_header.cs" />
+    <Compile Include="models\export_sales_line_item.cs" />
+    <Compile Include="models\export_sales_payment.cs" />
+    <Compile Include="models\general.cs" />
+    <Compile Include="models\goods.cs" />
+    <Compile Include="models\goods_attribute.cs" />
+    <Compile Include="models\inspection.cs" />
+    <Compile Include="models\inspection_asn.cs" />
+    <Compile Include="models\inspection_detail.cs" />
+    <Compile Include="models\instore_management.cs" />
+    <Compile Include="models\inventory.cs" />
+    <Compile Include="models\item.cs" />
+    <Compile Include="models\kbn_manage.cs" />
+    <Compile Include="models\kbn_manage_convert.cs" />
+    <Compile Include="models\kbn_manage_detail.cs" />
+    <Compile Include="models\large_class.cs" />
+    <Compile Include="models\maker.cs" />
+    <Compile Include="models\maker_brand.cs" />
+    <Compile Include="models\middle_class.cs" />
+    <Compile Include="models\orders.cs" />
+    <Compile Include="models\orders_detail.cs" />
+    <Compile Include="models\orion_store_coupon.cs" />
+    <Compile Include="models\pack_class.cs" />
+    <Compile Include="models\pack_size.cs" />
+    <Compile Include="models\pack_weight.cs" />
+    <Compile Include="models\pda_com_log.cs" />
+    <Compile Include="models\pda_error_log.cs" />
+    <Compile Include="models\pda_online.cs" />
+    <Compile Include="models\pda_orders.cs" />
+    <Compile Include="models\pda_orders_detail.cs" />
+    <Compile Include="models\pda_parameter.cs" />
+    <Compile Include="models\pda_pos.cs" />
+    <Compile Include="models\pda_pos_detail.cs" />
+    <Compile Include="models\pda_pos_payment.cs" />
+    <Compile Include="models\pda_receipt_cm.cs" />
+    <Compile Include="models\pda_stocktaking_sku.cs" />
+    <Compile Include="models\pda_stocktaking_sku_detail.cs" />
+    <Compile Include="models\pda_store_payment_type.cs" />
+    <Compile Include="models\pda_version_up_log.cs" />
+    <Compile Include="models\pda_version_up_manage.cs" />
+    <Compile Include="models\pda_version_up_online.cs" />
+    <Compile Include="models\pos_sales_price.cs" />
+    <Compile Include="models\present_staff.cs" />
+    <Compile Include="models\preset_button.cs" />
+    <Compile Include="models\preset_page.cs" />
+    <Compile Include="models\purchase.cs" />
+    <Compile Include="models\readings.cs" />
+    <Compile Include="models\readings0.cs" />
+    <Compile Include="models\return_goods.cs" />
+    <Compile Include="models\return_goods_detail.cs" />
+    <Compile Include="models\Service_Chk.cs" />
+    <Compile Include="models\shipping_rate.cs" />
+    <Compile Include="models\small_class.cs" />
+    <Compile Include="models\staff.cs" />
+    <Compile Include="models\stocktaking_account.cs" />
+    <Compile Include="models\stocktaking_account_detail.cs" />
+    <Compile Include="models\stock_condition.cs" />
+    <Compile Include="models\store.cs" />
+    <Compile Include="models\store_delivery_trader.cs" />
+    <Compile Include="models\store_goods.cs" />
+    <Compile Include="models\store_staff.cs" />
+    <Compile Include="models\supplier.cs" />
+    <Compile Include="models\supplier_goods.cs" />
+    <Compile Include="models\temp.cs" />
+    <Compile Include="models\terminal_apply_business.cs" />
+    <Compile Include="models\terminal_manage.cs" />
+    <Compile Include="models\trade.cs" />
+    <Compile Include="models\transaction_no_management.cs" />
+    <Compile Include="models\transaction_send_management.cs" />
+    <Compile Include="models\transfer.cs" />
+    <Compile Include="models\transfer_detail.cs" />
+    <Compile Include="models\transfer_in.cs" />
+    <Compile Include="models\transfer_in_detail.cs" />
+    <Compile Include="models\transfer_out.cs" />
+    <Compile Include="models\transfer_out_detail.cs" />
+    <Compile Include="models\transfer_request.cs" />
+    <Compile Include="models\waste.cs" />
+    <Compile Include="models\waste_detail.cs" />
+    <Compile Include="models\weather_info.cs" />
+    <Compile Include="SendService.svc.cs">
+      <DependentUpon>SendService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ISendService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5974</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Planet.PDA.Wcf</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
