@@ -4,7 +4,8 @@
     "Microsoft.Bcl": "1.1.10",
     "Microsoft.Net.Http": "2.2.29",
     "Newtonsoft.Json": "9.0.1",
-    "Xamarin.Forms": "2.3.2.127"
+    "Xamarin.Forms": "2.3.2.127",
+    "ZXing.Net.Mobile.Forms": "2.1.47"
   },
   "frameworks": {
     ".NETPortable,Version=v4.5,Profile=Profile49": {}

@@ -1,6 +1,9 @@
 ﻿using System.Threading.Tasks;
+using System.Collections.Generic;
 using Xamarin.Forms;
 using System.Net.Http;
+using Newtonsoft.Json;
+using ZXing.Net.Mobile.Forms;
 
 namespace Planet.PDA.Portable
 {
@@ -38,39 +41,43 @@ namespace Planet.PDA.Portable
                 Children =
                 {
                     grid,
-                    //new StackLayout()
-                    //{
-                    //    Orientation = StackOrientation.Horizontal,
-                    //    Children =
-                    //    {
-                    //        new Label() { Text ="状態",  },
-                    //        new Label() { Text = "ZZZZ", }
-                    //    }
-                    //},
-                    //new StackLayout()
-                    //{
-                    //    Orientation = StackOrientation.Horizontal,
-                    //    Children =
-                    //    {
-                    //        new Label() { Text ="売上日",  },
-                    //        new Label() { Text = "ZZZZ", }
-                    //    }
-                    //},
                     new Label() { Text="" },
                     new Label() { Text = "最終更新日：{0}" },
                     new Button() { Text = "マスタデータ受信" ,
                     Command = new Command(async() => 
                     {
-                        var x = await GetData();
+                        var x = await GetMasterData();
+
+                        
 
 
                     })},
                     new Label() { Text = "最終送信日：{0}" },
                     new Button() { Text = "データ送信",
-                    Command = new Command(() =>
+                    Command = new Command(async() =>
                     {
+                        // スキャナページの設定
+                        var scanPage = new ZXingScannerPage()
+                        {
+                            DefaultOverlayTopText = "バーコードを読み取ります",
+                            DefaultOverlayBottomText = "",
+                        };
+                        // スキャナページを表示
+                        await Navigation.PushAsync(scanPage);
 
+                        // データが取れると発火
+                        scanPage.OnScanResult += (result) =>
+                        {
+                            // スキャン停止
+                            scanPage.IsScanning = false;
 
+                            // PopAsyncで元のページに戻り、結果をダイアログで表示
+                            Device.BeginInvokeOnMainThread(async () =>
+                            {
+                                await Navigation.PopAsync();
+                                await DisplayAlert("スキャン完了", result.Text, "OK");
+                            });
+                        };
 
                     })},
                 new Button() { Text = "メニューへ", Command = new Command(() => Navigation.RemovePage(Navigation.NavigationStack[1])) }
@@ -87,8 +94,7 @@ namespace Planet.PDA.Portable
 
         }
 
-        private async Task<T> GetMasterData()
-            where T;
+        async Task<string> GetMasterData()
         {
             string returnData = null;
             var httpClient = new HttpClient();
