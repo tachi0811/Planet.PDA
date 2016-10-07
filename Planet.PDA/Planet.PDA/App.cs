@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using System.Net.
 using Xamarin.Forms;
 
 namespace Planet.PDA
@@ -32,8 +33,11 @@ namespace Planet.PDA
 
         private async void buttonClick(object sender, EventArgs e)
         {
+            
+
             try
             {
+                va
                 var request = System.Net.HttpWebRequest.Create("http://192.168.15.54/PDAWcfService/SendService.svc/getdata/ap_system_parameter");
                 using (var response = await request.GetResponseAsync())
                 {
@@ -42,6 +46,7 @@ namespace Planet.PDA
                         using (var readStream = new System.IO.StreamReader(stream))
                         {
                             string data = readStream.ReadToEnd();
+                            
                         }
                     }
                 }
