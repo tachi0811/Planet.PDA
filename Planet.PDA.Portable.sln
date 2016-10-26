@@ -9,12 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planet.PDA.Portable.Droid",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planet.PDA.Portable.iOS", "Planet.PDA.Portable\Planet.PDA.Portable.iOS\Planet.PDA.Portable.iOS.csproj", "{25BEBD82-0423-4C34-BC70-39A7E0E7C5DC}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Planet.PDA.Portable.Common", "Planet.PDA.Portable.Common\Planet.PDA.Portable.Common.shproj", "{798001D1-EDCF-40B4-B0B4-CD700A5C216B}"
-EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Planet.PDA.Portable.Common\Planet.PDA.Portable.Common.projitems*{798001d1-edcf-40b4-b0b4-cd700a5c216b}*SharedItemsImports = 13
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM
