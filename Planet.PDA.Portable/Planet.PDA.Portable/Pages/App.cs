@@ -12,7 +12,7 @@ namespace Planet.PDA.Portable
     {
         public App()
         {
-           
+             
         }
 
         protected override async void OnStart()
