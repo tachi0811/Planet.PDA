@@ -54,5 +54,6 @@ namespace Planet.PDA.Portable
             this.Content = grid;
 
         }
+
     }
 }

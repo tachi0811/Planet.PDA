@@ -1,19 +1,25 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.Linq;
 using Xamarin.Forms;
 using System.Net.Http;
 using Newtonsoft.Json;
 using ZXing.Net.Mobile.Forms;
+using System;
+using System.Reflection;
 
 namespace Planet.PDA.Portable
 {
     class SojushinMenuPage : ContentPage
     {
+
         /// <summary>
         /// 送受信メニュー
         /// </summary>
         public SojushinMenuPage()
         {
+            
+            
 
             Title = "送受信メニュー";
 
@@ -36,24 +42,34 @@ namespace Planet.PDA.Portable
             grid.Children.Add(new Label() { Text = "売上日" }, 0, 1);
             grid.Children.Add(new Label() { Text = "yyyy/MM/dd" }, 1, 1);
 
+
+            Label lbl = new Label()
+            {
+                Text = ""
+            };
+
             var layout = new StackLayout()
             {
                 Children =
                 {
                     grid,
+                    lbl,
                     new Label() { Text="" },
                     new Label() { Text = "最終更新日：{0}" },
                     new Button() { Text = "マスタデータ受信" ,
-                    Command = new Command(async() => 
+                    // ------------------------------
+                    // マスタデータ受信
+                    // ------------------------------
+                    Command = new Command(async () =>
                     {
-                        var x = await GetMasterData();
-
-                        
-
-
+                        // マスタ受信ページへ
+                        await Common.InsertMasterDataAll();
                     })},
                     new Label() { Text = "最終送信日：{0}" },
                     new Button() { Text = "データ送信",
+                    // ------------------------------
+                    // データ送信
+                    // ------------------------------
                     Command = new Command(async() =>
                     {
                         // スキャナページの設定
@@ -84,8 +100,6 @@ namespace Planet.PDA.Portable
                 }
             };
 
-
-
             // Accomodate iPhone status bar.
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
             NavigationPage.SetHasNavigationBar(this, false);
@@ -94,21 +108,6 @@ namespace Planet.PDA.Portable
 
         }
 
-        async Task<string> GetMasterData()
-        {
-            string returnData = null;
-            var httpClient = new HttpClient();
 
-            using (System.IO.Stream stream = await httpClient.GetStreamAsync("http://www3.city.sabae.fukui.jp/xml/refuge2/refuge2.xml"))
-            {
-                using (System.IO.StreamReader streamReader = new System.IO.StreamReader(stream))
-                {
-                    returnData = streamReader.ReadToEnd();
-                }
-            }
-
-            return returnData;
-
-        }
     }
 }

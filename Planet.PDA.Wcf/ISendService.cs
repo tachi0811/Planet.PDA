@@ -6,19 +6,15 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 
-namespace PDAWcfService
+namespace Planet.PDA.Wcf
 {
     // メモ: [リファクター] メニューの [名前の変更] コマンドを使用すると、コードと config ファイルの両方で同時にインターフェイス名 "IService1" を変更できます。
     [ServiceContract(Namespace = "http://Planet.Wcf")]
     public interface ISendService
     {
-
         [OperationContract]
-        [WebInvoke(UriTemplate = "/getdata/{tableName}", ResponseFormat = WebMessageFormat.Json, Method = "GET", RequestFormat = WebMessageFormat.Json)]
-        string GetData(string tableName);
-
+        [WebInvoke(UriTemplate = "/getdata/{tableName}/{lastUpdateDateTime}", Method = "GET")]
+        string GetData(string tableName, DateTime lastUpdateDateTime);
     }
-
-
 
 }

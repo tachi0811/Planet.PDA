@@ -23,13 +23,15 @@ namespace Planet.PDA.Portable
 
             layout.Children.Add(new Button() { Text = "売上登録",  });
 
-            layout.Children.Add(new Button() { Text = "メニューへ", Command = new Command(() => Navigation.RemovePage(Navigation.NavigationStack[1])) });
+            layout.Children.Add(new Button() { Text = "メニューへ", Command = new Command(() => Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1])) });
 
             // Accomodate iPhone status bar.
             this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
             NavigationPage.SetHasNavigationBar(this, false);
 
             this.Content = layout;
+
+            
         }
 
     }

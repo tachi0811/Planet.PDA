@@ -34,7 +34,7 @@ namespace Planet.PDA.Portable
         /// <summary>
         /// 読み込みデータ
         /// </summary>
-        public string Barcode { get; set; }
+        public string Barcode { get; private set; }
 
     }
 }

@@ -8,8 +8,10 @@ using System.Text;
 using Newtonsoft.Json;
 using System.Data.Entity;
 using Dapper;
+using System.Data;
+using System.Data.SqlClient;
 
-namespace PDAWcfService
+namespace Planet.PDA.Wcf
 {
     /// <summary>
     /// 送信データService
@@ -18,13 +20,17 @@ namespace PDAWcfService
     {
         string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["pdaDB"].ToString();
 
-        public string GetData(string tableName)
+        public string GetData(string tableName, DateTime lastUpdateDateTime)
         {
             using (var con = new System.Data.SqlClient.SqlConnection(connectionString))
             {
-                var goods = con.Query<ap_system_parameter>("select * from " + tableName);
-                return JsonConvert.SerializeObject(goods);
-            }            
+                var data = con.Query("select * from " + tableName);
+                // Dapper を使用して、SQLを発行します
+                 return JsonConvert.SerializeObject(data);
+            }
         }
+
+
+       
     }
 }
