@@ -12,10 +12,14 @@ namespace Planet.PDA.Portable
     /// </summary>
     public class MenuPage : ContentPage
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public MenuPage()
         {
             Title = "メニューページ";
 
+            // 3 * 3 のグリッドを作成
             Grid grid = new Grid
             {
                 VerticalOptions = LayoutOptions.FillAndExpand,
@@ -35,11 +39,33 @@ namespace Planet.PDA.Portable
 
             
 
-            // Build the page.
+            // page => grid
             this.Content = grid;
+
+            // ボタンイベント
             grid.Children.Add(new Button { Text = "売上登録", Command = new Command(() => Navigation.PushAsync(new UriageMenuPage())) }, 0, 0);
             grid.Children.Add(new Button { Text = "送受信", Command = new Command(() => Navigation.PushAsync(new SojushinMenuPage())) }, 1, 0);
-            grid.Children.Add(new Button { Text = "ボタン3", }, 2, 0);
+            grid.Children.Add(new Button { Text = "ボタン3"
+                , Command = new Command(async() => 
+                {
+                    // 毎回、同じインスタンスを使用する（同じインスタンス）
+                    var loading = DependencyService.Get<ILoading>(DependencyFetchTarget.NewInstance);
+
+                    // Loding を表示（サンプル）
+                    loading.Show("ｘｘｘ処理を実行中");
+
+
+                    // 15 秒待つ
+                    await Task.Delay(15000);
+
+                    // Loding 画面
+                    loading.Hide();
+
+
+
+
+                }) }, 2, 0);
+
             grid.Children.Add(new Button { Text = "ボタン1", }, 0, 1);
             grid.Children.Add(new Button { Text = "ボタン2", }, 1, 1);
             grid.Children.Add(new Button { Text = "ボタン3", }, 2, 1);

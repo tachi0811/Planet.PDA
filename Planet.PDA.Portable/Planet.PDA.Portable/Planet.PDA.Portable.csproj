@@ -37,6 +37,7 @@
   <ItemGroup>
     <Compile Include="Common.cs" />
     <Compile Include="Data\SQLiteAccessor.cs" />
+    <Compile Include="ILoading.cs" />
     <Compile Include="ISQLite.cs" />
     <Compile Include="Models\apply_business.cs" />
     <Compile Include="Models\ap_system_parameter.cs" />

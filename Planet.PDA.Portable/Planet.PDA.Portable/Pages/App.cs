@@ -8,33 +8,18 @@ using Xamarin.Forms;
 
 namespace Planet.PDA.Portable
 {
+    /// <summary>
+    ///
+    /// </summary>
     public class App : Application
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public App()
         {
-             
-        }
-
-        protected override async void OnStart()
-        {
-            base.OnStart();
-
-            MainPage = new ContentPage()
-            {
-                Content = new ActivityIndicator()
-                {
-                    Color = Device.OnPlatform(Color.Black, Color.Default, Color.Default),
-                    IsRunning = true,
-                    VerticalOptions = LayoutOptions.CenterAndExpand
-                }
-            };
-
-            // マスタデータの受信
-            await Common.InsertMasterData<staff>();
-
-            // MainPage = new InitPage();
+            // メニューページを表示
             MainPage = new NavigationPage(new MenuPage());
-
         }
     }
 }

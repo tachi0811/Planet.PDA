@@ -2,12 +2,12 @@ using System;
 using System.IO;
 using SQLite.Net;
 using SQLite.Net.Platform.XamarinAndroid;
-using Planet.PDA.Portable.Droid;
+using XamarinApp.Droid;
 using Planet.PDA.Portable;
 using Xamarin.Forms;
 
 [assembly: Dependency(typeof(SQLite_Android))]
-namespace Planet.PDA.Portable.Droid
+namespace XamarinApp.Droid
 {
     public class SQLite_Android : ISQLite
     {

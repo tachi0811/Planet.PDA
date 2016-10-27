@@ -7,13 +7,16 @@ using Xamarin.Forms;
 
 namespace Planet.PDA.Portable.Pages
 {
+    /// <summary>
+    /// ログインページ
+    /// </summary>
     public class LoginPage : ContentPage
     {
         Entry userID;
         Entry password;
 
         /// <summary>
-        /// 
+        /// コンストラクタ
         /// </summary>
         public LoginPage()
         {
@@ -46,9 +49,13 @@ namespace Planet.PDA.Portable.Pages
                         Command = new Command(async () => 
                         {
                             if (await IsSeccessLogin(userID.Text, password.Text))
-    {
-
-	}
+                            {
+                                // ログイン完了処理
+	                        }
+                            else
+                            {
+                                // ログイン失敗処理（メッセージダイアログ）
+	                        }
                         })
                     }
                 }
@@ -64,9 +71,13 @@ namespace Planet.PDA.Portable.Pages
 
         Task<bool> IsSeccessLogin(string userID, string password)
         {
+            return Task.Run(() =>
+            {
 
 
-            return true;
+
+                return true;
+            });
         }
 
     }
