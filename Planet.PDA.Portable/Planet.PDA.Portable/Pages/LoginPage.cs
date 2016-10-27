@@ -69,6 +69,12 @@ namespace Planet.PDA.Portable.Pages
 
         }
 
+        /// <summary>
+        /// ログイン処理
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         Task<bool> IsSeccessLogin(string userID, string password)
         {
             return Task.Run(() =>

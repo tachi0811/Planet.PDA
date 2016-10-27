@@ -13,7 +13,9 @@ namespace Planet.PDA.Portable.iOS
 {
     public class Loading_iOS : ILoading
     {
-        private LoadingOverlay loadpop;
+        LoadingOverlay loadingOverlay;
+
+
         /// <summary>ローディングを開始する</summary>
         /// <param name="message"></param>
         public void Show(string message)
@@ -26,29 +28,37 @@ namespace Planet.PDA.Portable.iOS
             }
 
             var bounds = UIScreen.MainScreen.Bounds;
-            loadpop = new LoadingOverlay(bounds, message);
-            vc.Add(loadpop);
-            ishow = true;
+            loadingOverlay = new LoadingOverlay(bounds, message);
+            vc.Add(loadingOverlay);
+            isShow = true;
+        }
+
+        public void SetMessage(string message)
+        {
+            if (isShow)
+            {
+                loadingOverlay.loadingLabel.Text = message;
+            }
         }
 
         /// <summary>ローディングを終了する</summary>
         public void Hide()
         {
-            loadpop.Hide();
-            ishow = false;
+            loadingOverlay.Hide();
+            isShow = false;
         }
 
         /// <summary>状態</summary>
-        public bool IsShow => ishow;
+        public bool IsShow => isShow;
 
-        private bool ishow = false;
+        private bool isShow = false;
     }
 
     public class LoadingOverlay : UIView
     {
         // control declarations
         UIActivityIndicatorView activitySpinner;
-        UILabel loadingLabel;
+        public UILabel loadingLabel;
 
         public LoadingOverlay(CGRect frame, string message) : base(frame)
         {
@@ -82,9 +92,9 @@ namespace Planet.PDA.Portable.iOS
                 labelWidth,
                 labelHeight
                 ));
+            loadingLabel.Text = message;
             loadingLabel.BackgroundColor = UIColor.Clear;
             loadingLabel.TextColor = UIColor.White;
-            loadingLabel.Text = message;
             loadingLabel.TextAlignment = UITextAlignment.Center;
             loadingLabel.AutoresizingMask = UIViewAutoresizing.All;
             AddSubview(loadingLabel);

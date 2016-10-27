@@ -58,11 +58,13 @@ namespace Planet.PDA.Portable
                     // 15 秒待つ
                     await Task.Delay(15000);
 
+
+                    loading.SetMessage("メッセージ変更");
+
+                    await Task.Delay(15000);
+
                     // Loding 画面
                     loading.Hide();
-
-
-
 
                 }) }, 2, 0);
 

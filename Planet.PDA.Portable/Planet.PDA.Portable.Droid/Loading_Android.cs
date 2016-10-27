@@ -17,9 +17,18 @@ namespace Planet.PDA.Portable.Droid
 {
     public class Loading_Android : ILoading
     {
-        private ProgressDialog progress;
+        /// <summary>
+        /// プログレスダイアログ
+        /// </summary>
+        ProgressDialog progress;
+
+        /// <summary>
+        /// 表示の有無
+        /// </summary>
+        bool isShow = false;
+
         /// <summary>ローディングを開始する</summary>
-        /// <param name="message"></param>
+        /// <param name="message">メッセージ</param>
         public void Show(string message)
         {
             progress = new ProgressDialog(Forms.Context);
@@ -28,20 +37,34 @@ namespace Planet.PDA.Portable.Droid
             progress.SetCancelable(false);
             progress.SetMessage(message);
             progress.Show();
-            ishow = true;
+            isShow = true;
         }
 
-        /// <summary>ローディングを終了する</summary>
+        /// <summary>
+        /// メッセージを表示する
+        /// </summary>
+        /// <param name="message">メッセージ</param>
+        public void SetMessage(string message)
+        {
+            if (isShow)
+            {
+                progress.SetMessage(message);
+            }
+        }
+
+        /// <summary>
+        /// ローディングを終了する
+        /// </summary>
         public void Hide()
         {
             progress?.Dismiss();
-            ishow = false;
+            isShow = false;
         }
 
-        /// <summary>状態</summary>
-        public bool IsShow => ishow;
-
-        private bool ishow = false;
+        /// <summary>
+        /// 状態
+        /// </summary>
+        public bool IsShow => isShow;
 
     }
 }

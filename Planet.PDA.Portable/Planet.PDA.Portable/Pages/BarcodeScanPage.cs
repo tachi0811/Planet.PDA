@@ -33,6 +33,7 @@ namespace Planet.PDA.Portable
                 {
                     await Navigation.PopAsync();
                     await DisplayAlert("スキャンできました。", result.Text, "OK");
+
                 });
             };
         }

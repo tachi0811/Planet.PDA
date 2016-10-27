@@ -17,10 +17,7 @@ namespace Planet.PDA.Portable
         /// 送受信メニュー
         /// </summary>
         public SojushinMenuPage()
-        {
-            
-            
-
+        {          
             Title = "送受信メニュー";
 
             var grid = new Grid()
@@ -60,7 +57,7 @@ namespace Planet.PDA.Portable
                     // ------------------------------
                     // マスタデータ受信
                     // ------------------------------
-                    Command = new Command(async () =>
+                    Command = new Command(async() =>
                     {
                         // マスタ受信ページへ
                         await Common.InsertMasterDataAll();
@@ -105,8 +102,8 @@ namespace Planet.PDA.Portable
             NavigationPage.SetHasNavigationBar(this, false);
 
             this.Content = layout;
-
         }
+
 
 
     }
